@@ -1,0 +1,528 @@
+
+/* ========================================
+   1. Definimos las custom properties
+    para el tema oscuro y la tipografía base.
+   ======================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* Typography */
+  --font-family-base: system-ui, sans-serif;
+
+  /* Colors */
+  --color-background: #15171c;
+  --color-surface: #1e222b;
+  --color-surface-raised: #272c37;
+
+  --color-text: #f2f4f8;
+  --color-text-muted: #a8b0bf;
+
+  --color-accent: #8baaff;
+  --color-accent-hover: #b0c5ff;
+
+  --color-border: #363c49;
+
+  /* Layout */
+  --container-width: 1120px;
+  --page-gutter: 24px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Motion */
+  --transition-theme: 180ms ease;
+
+}
+/* ========================================
+   1.1. VARIABLES DEL TEMA CLARO
+   ======================================== */
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --color-background: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-surface-raised: #e9edf5;
+
+  --color-text: #202633;
+  --color-text-muted: #596579;
+
+  --color-accent: #315fcb;
+  --color-accent-hover: #244ba8;
+
+  --color-border: #d5dce8;
+}
+
+/* ========================================
+   2. Estilos base para el body, tipografía y elementos HTML
+   ======================================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-8);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+
+  color: var(--color-text);
+  background-color: var(--color-background);
+
+  overflow-wrap: break-word;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* ========================================
+   3. LAYOUT
+   ======================================== */
+
+.container {
+  width: min(
+    calc(100% - 2 * var(--page-gutter)),
+    var(--container-width)
+  );
+
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-16);
+}
+
+/* ========================================
+4. ACCESIBILIDAD: MOVIMIENTO REDUCIDO
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+html {
+scroll-behavior: auto;
+}
+}
+/* ========================================
+   5. HEADER Y NAVEGACIÓN
+   ======================================== */
+
+.site-header {
+  width: min(
+    calc(100% - 2 * var(--page-gutter)),
+    var(--container-width));
+
+  margin-inline: auto;
+  padding-block: var(--space-6);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* Logo */
+
+.site-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-logo span {
+  color: var(--color-accent);
+}
+
+/* Navegación */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.main-nav a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-theme);
+}
+
+.main-nav a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Controles */
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.header-controls button {
+  padding: var(--space-2) var(--space-3);
+
+  color: var(--color-text);
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+  transition:
+    background-color var(--transition-theme),
+    border-color var(--transition-theme);
+}
+
+.header-controls button:hover {
+  background-color: var(--color-surface-raised);
+  border-color: var(--color-accent);
+}
+
+/* Foco visible para teclado */
+
+.site-header a:focus-visible,
+.header-controls button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+
+/* ========================================
+   6. HERO: PRESENTACIÓN PRINCIPAL
+   ======================================== */
+
+.hero {
+  width: min(
+    calc(100% - 2 * var(--page-gutter)),
+    var(--container-width)
+  );
+
+  min-height: 65vh;
+  margin-inline: auto;
+  padding-block: var(--space-16);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Texto introductorio */
+
+.hero-eyebrow {
+  margin-bottom: var(--space-4);
+
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Título principal */
+
+.hero h1 {
+  max-width: 800px;
+  margin-bottom: var(--space-6);
+
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+/* Descripción */
+
+.hero-description {
+  max-width: 620px;
+  margin-bottom: var(--space-8);
+
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+}
+
+/* Enlaces de acción */
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-3) var(--space-6);
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    background-color var(--transition-theme),
+    color var(--transition-theme),
+    border-color var(--transition-theme);
+}
+
+.button-primary {
+  color: #15171c;
+  background-color: var(--color-accent);
+}
+
+.button-primary:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.button-secondary {
+  color: var(--color-text);
+  background-color: transparent;
+  border-color: var(--color-border);
+}
+
+.button-secondary:hover {
+  background-color: var(--color-surface);
+  border-color: var(--color-accent);
+}
+
+/* Foco visible al navegar con teclado */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+/* ========================================
+   7. SECCIONES GENERALES
+   ======================================== */
+
+.section {
+  padding-block: var(--space-16);
+}
+
+/* Títulos de las secciones */
+
+.section h2 {
+  margin-bottom: var(--space-8);
+
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+/* Separación visual entre secciones */
+
+.section + .section {
+  border-top: 1px solid var(--color-border);
+}
+
+
+/* ========================================
+   8. TARJETAS DE PROYECTOS
+   ======================================== */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.project-card {
+  padding: var(--space-6);
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  transition:
+    border-color var(--transition-theme),
+    background-color var(--transition-theme);
+}
+
+.project-status {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  padding: var(--space-1) var(--space-2);
+
+  color: var(--color-accent);
+  background-color: var(--color-surface-raised);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.project-card:hover {
+  background-color: var(--color-surface-raised);
+  border-color: var(--color-accent);
+}
+
+.project-card h3 {
+  margin-bottom: var(--space-3);
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.project-card p {
+  color: var(--color-text-muted);
+}
+
+.project-card a {
+  color: var(--color-accent);
+  text-underline-offset: 4px;
+}
+
+.project-card a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Adaptación a pantallas pequeñas */
+
+@media (max-width: 640px) {
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+/* ========================================
+   9. TECNOLOGÍAS
+   ======================================== */
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.skill-tag {
+  padding: var(--space-2) var(--space-4);
+
+  color: var(--color-text);
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   10. CONTACTO
+   ======================================== */
+
+.contact-description {
+  max-width: 600px;
+  margin-bottom: var(--space-6);
+
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+}
+
+
+/* ========================================
+   11. FOOTER
+   ======================================== */
+
+.site-footer {
+  padding: var(--space-6) var(--page-gutter);
+
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.site-footer p {
+  max-width: var(--container-width);
+  margin-inline: auto;
+}
+
+
+.header-controls button {
+  display: inline-grid;
+  place-items: center;
+  height: 40px;
+  min-width: 40px;
+  padding: 0 10px;
+  font: inherit;
+  cursor: pointer;
+}
+
+[data-theme-toggle] {
+  font-size: 1.25rem;
+}
+
+[data-theme="light"] .button-primary {
+  color: #ffffff;
+}
+
+.back-to-top {
+position: fixed;
+right: 24px;
+bottom: 24px;
+z-index: 1000;
+
+display: grid;
+place-items: center;
+width: 44px;
+height: 44px;
+
+color: var(--color-text);
+background-color: var(--color-surface);
+border: 1px solid var(--color-border);
+border-radius: 50%;
+
+font-size: 24px;
+line-height: 1;
+text-decoration: none;
+
+box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+transition:
+background-color var(--transition-theme),
+border-color var(--transition-theme);
+}
+
+.back-to-top:hover {
+background-color: var(--color-accent);
+}
+
+.back-to-top:focus-visible {
+outline: 2px solid var(--color-accent);
+outline-offset: 4px;
+}

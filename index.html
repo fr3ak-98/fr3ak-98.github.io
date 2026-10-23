@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/styles.css">
+    <title data-i18n="page.title">freak</title>
+    <meta name="description" content="Portfolio profesional de Nicolás Domínguez, enfocado en tecnología, redes y soporte IT. Conocé mis conocimientos, proyectos y evolución profesional.">
+</head>
+
+
+<body>
+    <header class="site-header">
+        <a class="site-logo" href="#home" aria-label="Inicio" data-i18n-aria-label="logo.label">Portfolio<span aria-hidden="true">.fr3ak.</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegación principal" data-i18n-aria-label="nav.label">
+            <a href="#about" data-i18n="nav.about">Sobre mí</a>
+            <a href="#skills" data-i18n="nav.skills">Tecnologías</a>
+            <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+            <a href="#contact" data-i18n="nav.contact">Contacto</a>
+        </nav>
+
+        <div class="header-controls">
+            <button
+                type="button"
+                data-language-toggle
+                aria-label="Switch language to English">EN
+            </button>
+
+            <button
+                type="button"
+                data-theme-toggle
+                aria-label="Cambiar tema visual"
+                >
+                ☀
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home" aria-labelledby="hero-title">
+            <p class="hero-eyebrow" data-i18n="hero.eyebrow">
+                Portfolio profesional
+            </p>
+
+            <h1 id="hero-title" data-i18n="hero.title">
+                Construyendo mi camino en tecnología.
+            </h1>
+
+            <p class="hero-description" data-i18n="hero.description">
+                Un espacio para presentar mis conocimientos, proyectos y evolución
+                profesional.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="button button-primary"data-i18n="hero.projects">Explorar proyectos</a>
+                <a href="#contact" class="button button-secondary"data-i18n="hero.contact">Contactarme</a>
+            </div>
+        </section>
+
+        <section class="about section" id="about" aria-labelledby="about-title">
+            <div class="container">
+                <h2 id="about-title" data-i18n="about.title">Sobre mí</h2>
+                    <!-- Aquí definiremos tu presentación profesional. -->
+                <p data-i18n="about.paragraph1">
+                    Me interesa la administración de sistemas, las redes y la infraestructura tecnológica. Actualmente estoy ampliando mis conocimientos mediante el aprendizaje práctico y el desarrollo de proyectos propios.
+                </p>
+                <p data-i18n="about.paragraph2">
+                    Trabajo en proyectos que me permiten explorar herramientas, comprender configuraciones técnicas y resolver problemas concretos. También sigo aprendiendo programación, con el objetivo de crear herramientas que faciliten tareas de administración y gestión.
+                </p>
+                <p data-i18n="about.paragraph3">
+                    Mi enfoque es aprender haciendo, documentar lo que descubro y construir soluciones cada vez más sólidas. 
+                </p>
+            </div>
+        </section>
+
+        <section class="skills section" id="skills" aria-labelledby="skills-title">
+            <div class="container">
+                <h2 id="skills-title" data-i18n="skills.title">Tecnologías</h2>
+            
+                <div class="skills-list">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">SQL Server</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects section" id="projects" aria-labelledby="projects-title">
+            <div class="container">
+                <h2 id="projects-title" data-i18n="projects.title">Proyectos</h2>
+
+                <div class="project-grid">
+                    <article class="project-card">
+                        <p class="project-status" data-i18n="projects.netops.status">En desarrollo</p>
+                            <h3>NetOps Desk</h3>
+                        <p data-i18n="projects.netops.description">
+                            Proyecto orientado a herramientas para tareas de redes y
+                            administración de sistemas.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="project-status" data-i18n="projects.mu.status">En desarrollo</p>
+                            <h3>MU Configurator</h3>
+                        <p data-i18n="projects.mu.description">
+                        Herramienta en desarrollo para analizar y gestionar configuraciones de servidores MU Online Season 6.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" data-i18n="contact.title">Contacto</h2>
+                <p class="contact-description" data-i18n="contact.description">
+                    ¿Querés conocer más sobre mis proyectos o contactarme?
+                </p>
+                <a class="button button-primary" href="mailto:nicodominguez926@gmail.com" data-i18n="contact.email">
+                    Enviar un correo
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p data-i18n="footer.text">
+        Portfolio personal. Todos los derechos reservados.
+        </p>
+    </footer>
+    
+        <a class="back-to-top" href="#home" aria-label="Volver al inicio" title="Volver al inicio">
+        <span aria-hidden="true">↑</span>
+        </a>
+    <script src="/script.js" defer></script>
+</body>
+</html>
